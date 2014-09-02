@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+
+public class Prac {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner in = new Scanner(System.in);
+		String str = in.nextLine();
+		System.out.println(str);
+		for(int i=0;i<str.length();i++)
+		{
+			System.out.println(str.charAt(i) - 'a');
+		}
+	}
+
+}
