@@ -21,7 +21,21 @@
 #include <cassert>
 
 using namespace std;
+long long  power(long long x,long long y)
+{
+	int temp;
+	if(y == 0)
+		return 1;
+	temp = power(x,y/2);
+	if(y%2==0)
+		return temp*temp;
+	else
+		return x*temp*temp;
+}
 int main()
 {
-	return 0;
+	long long n,m;
+	cin>>n>>m;
+	cout<<power(n,m)<<endl;
+	        return 0;
 }

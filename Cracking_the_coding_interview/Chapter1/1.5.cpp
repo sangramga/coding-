@@ -23,5 +23,25 @@
 using namespace std;
 int main()
 {
-	return 0;
+	int count =1;
+	string str,str1;
+	cin>>str;
+	for(int i =1;i<str.size();i++)
+	{	
+		if(str[i]!=str[i-1]){
+			str1+=str[i];
+			str1+=count;
+			count =1;
+		}
+		else 
+			count++;
+	}
+	str1+=str[str.size()-1];
+		str1+=count;
+	if(str1.size()<str.size())
+		cout<<str1<<endl;
+	else
+		cout<<str<<endl;
+	
+	        return 0;
 }

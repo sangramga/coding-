@@ -1,4 +1,4 @@
-#include <cstring>
+nclude <cstring>
 #include <vector>
 #include <list>
 #include <map>
@@ -22,6 +22,15 @@
 
 using namespace std;
 int main()
-{
-	return 0;
+	{
+		int n;
+		map<int , int>timing;
+		int start_timing,end_timing;
+		while(n--)
+		{
+			cin>>start_timing>>end_timing;
+			timing[end_iming] = start_timing;
+		}
+
+	        return 0;
 }

@@ -23,5 +23,19 @@
 using namespace std;
 int main()
 {
-	return 0;
+	string str ;
+	cin>>str;
+	str+='\0';
+	int i=0;
+	while(str[i]!='\0')
+		i++;
+	for(int j=0;j<i;j++)
+	{
+		char p  = str[i];
+		str[i] = str[j];
+		str[j] = p;
+		i--;
+	}
+	cout<<str<<endl;
+	        return 0;
 }

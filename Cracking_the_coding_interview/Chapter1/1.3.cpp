@@ -21,7 +21,28 @@
 #include <cassert>
 
 using namespace std;
+void permutation(string str1,string str2)
+{
+	 int alpha[256] = { 0 };
+	 for(int i =0;i<str1.size();i++)
+	    alpha[str1[i] - 'a']++;
+	 for(int i =0;i<str2.size();i++)
+	   alpha[str2[i] - 'a']--;
+	 for(int i =0;i<26;i++)
+	 if(alpha[i]!=0)
+	 {
+		  cout<<"NO"<<endl;
+		  return ;
+
+	 }
+
+	 cout<<"YES"<<endl;
+}
 int main()
 {
-	return 0;
+	string str1,str2;
+	cin>>str1>>str2;
+	permutation(str1,str2);
+	
+	        return 0;
 }
