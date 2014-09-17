@@ -23,51 +23,48 @@
 using namespace std;
 int main()
 {
-	long long n,k,d;
-	map<long long, long long>m;
-	vector<long long>D;
+	long long n,k,d,a;
+	map<long, long long>m;
 
 	cin>>n>>k;
 	long long int A[n];
-	cin>>A[0];
-	for(long long i =1;i<n;i++)
+	 for(long long i=0;i<n;i++)
+	        cin>>A[i];
+	 if(n>50)
 	{
-		cin>>A[i];
-		d = A[i]-A[i-1];
-		if(m[d]<1)
+		sort(A,A+n);
+		d = A[n/2 +1] - A[n/2];
+		a = A[n/2] - (n/2)*d;
+		for(int i =0;i<n;i++)
 		{
-			m[d]=1;
-			D.push_back(d);
-		}
-		else
-			m[d]++;
-}
-long long l = D.size();
-sort(D.begin(),D.begin()+l);
-for(l= l-1;l>=0;l--)
-{
-	cout<<"D  = "<<" "<<D[l]<<" Occurrence "<<m[D[l]]<<endl;
-	if((n - m[D[l]])<=k)
-	{
-		d = D[l];
-		cout<<A[0]<<" ";
-		for(int i =1;i<n;i++)
-		{
-			if(A[i] - A[i-1]!=d)
-			{
-				A[i] = A[i-1] + d;
-			}
-			cout<<A[i]<<" ";
+			cout<<a<<" ";
+			a+=d;
 		}
 		cout<<endl;
 		return 0;
-	
-			
+	}
+	 for(int i =1;i<n;i++)
+	 {
+		 d = A[i] - A[i-1];
+		 m[d]++;
+	 }
+	long long currentA = A[0],currentD = A[1]-A[0];
+	for(long long i =2;i<n;i++)
+	{
+		d = A[i] - A[i-1];
+		a =  A[i] - i*d;
+		if(a<currentA||(a==currentA&&d<currentD)&&m[d]<=k)
+		{
+			currentA = a;
+			currentD = d;
 		}
+	}
+	for(long long i =0;i<n;i++)
+	{
+		cout<<a<<" ";
+		a+=d;
+	}
 	cout<<endl;
-	return 0;
-	
-}
 	        return 0;
 }
 

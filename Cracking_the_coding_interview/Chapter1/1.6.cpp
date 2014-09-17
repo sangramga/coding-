@@ -23,30 +23,20 @@
 using namespace std;
 int main()
 {
-	int count =1;
-	string str,str1,tmp;
-	cin>>str;
-	for(int i =1;i<str.size();i++)
-	{	
-		if(str[i]!=str[i-1]){
-			str1+=str[i-1];
-			stringstream out;
-			out<<count;
-			tmp = out.str();
-			str1+=tmp;
-			count =1;
+	int m,n;
+	cin>>m>>n;
+	int img[m][n];
+	for(int i = 0;i<n;i++)
+		for(int j =m-1;j>=0;j--)
+			cin>>img[j][i];
+
+	for(int i =0;i<m;i++){
+		for(int j =0;j<n;j++)
+		{
+			cout<<img[i][j]<<" ";
 		}
-		else 
-			count++;
+	cout<<endl;
 	}
-	str1+=str[str.size()-1];
-	stringstream out;
-	out<<count;
-	tmp = out.str();
-		str1+=tmp;
-	if(str.size()>str1.size())
-		cout<<str1<<endl;
-	else
-		cout<<str<<endl;
-	        return 0;
+	return 0;
 }
+

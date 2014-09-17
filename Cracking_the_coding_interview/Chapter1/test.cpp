@@ -23,30 +23,14 @@
 using namespace std;
 int main()
 {
-	int count =1;
-	string str,str1,tmp;
-	cin>>str;
-	for(int i =1;i<str.size();i++)
-	{	
-		if(str[i]!=str[i-1]){
-			str1+=str[i-1];
-			stringstream out;
-			out<<count;
-			tmp = out.str();
-			str1+=tmp;
-			count =1;
-		}
-		else 
-			count++;
-	}
-	str1+=str[str.size()-1];
+	int i = 5;
+	string s;
 	stringstream out;
-	out<<count;
-	tmp = out.str();
-		str1+=tmp;
-	if(str.size()>str1.size())
-		cout<<str1<<endl;
-	else
-		cout<<str<<endl;
-	        return 0;
+	out<<i;
+	s=out.str();
+	cout<<s<<endl;
+
+
+	return 0;
 }
+
