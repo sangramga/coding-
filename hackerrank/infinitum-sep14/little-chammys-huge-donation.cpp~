@@ -1,0 +1,27 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */  
+    long long t,sum,X,tmp;
+    cin>>t;
+    while(t--)
+        {
+        cin>>X;
+        sum = 0;
+        tmp  = 0;
+        while(sum<=X)
+            {
+            sum+=(tmp*tmp);
+            tmp++;
+        }
+        cout<<tmp--<<endl;
+    }
+    return 0;
+}
+
