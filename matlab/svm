@@ -1,0 +1,3 @@
+training = [];
+cd cannon
+files = dir('*.jpg')
