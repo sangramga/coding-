@@ -1,0 +1,59 @@
+#include<iostream>
+#include<stdio.h>
+#include<cmath>
+#include<vector>
+using namespace std;
+int main()
+{
+	int t;
+	cin>>t;
+	while(t--)
+	{
+		int n;
+		cin>>n;
+		int arry[n];
+		vector<int>pos;
+		vector<int>neg;
+		for(int i =0;i<n;i++)
+		{
+			cin>>arry[i];
+			if(arry[i]>=0)
+				pos.push_back(i);
+			else
+			{
+				arry[i] = -arry[i];
+				neg.push_back(i);
+			}
+		}
+		int ans  =0;
+		int i =0,j=0;
+		while(i<pos.size()&&j<neg.size())
+		{
+			int factor = pos[i] - neg[j];
+			if(factor<0)
+				factor = -factor;
+//			cout<<factor<<" "<<pos[i]<<" "<<arry[pos[i]]<<" "<<neg[j]<<" "<<arry[neg[j]]<<" "<<ans<<endl;
+			if(arry[pos[i]]==arry[neg[j]])
+			{
+				ans = ans + factor*arry[pos[i]];
+				i++;
+				j++;
+			}
+			else if(arry[pos[i]]>arry[neg[j]])
+			{
+				ans = ans + factor*arry[neg[j]];
+				arry[pos[i]] -= arry[neg[j]];
+				j++;
+			}
+			else
+			{
+				ans = ans + factor*arry[pos[i]];
+				arry[neg[j]] -= arry[pos[i]];
+				i++;
+			}
+			}
+		cout<<ans<<endl;
+	}
+		return 0;
+
+}

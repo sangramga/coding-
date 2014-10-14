@@ -1,0 +1,28 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+ string spoj6( string a,int len){
+	 string temp(a);
+	 string result(a);
+	for (int i = 0; i < len; ++i){
+		for (int j = i+1; j < len; ++j){
+			 reverse(temp.begin()+i, temp.begin()+j);
+			if(result.compare(temp) > 0)
+				result=temp;
+			temp=a;
+		}
+	}
+	return result;
+}
+int main(){
+	int t;
+	cin>>t;
+while(t--)
+{
+	 string a;
+cin>>a;
+	int len=a.length();
+	 cout<<spoj6(a,len)<<"\n";
+}
+}

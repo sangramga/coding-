@@ -1,52 +1,42 @@
-#include <cstring>
-#include <vector>
-#include <list>
-#include <map>
-#include <set>
-#include <deque>
-#include <stack>
-#include <bitset>
-#include <algorithm>
-#include <functional>
-#include <numeric>
-#include <utility>
-#include <sstream>
-#include <iostream>
-#include <iomanip>
-#include <cstdio>
-#include <cmath>
-#include <cstdlib>
-#include <ctime>
-#include <memory.h>
-#include <cassert>
-
+#include<iostream>
+#include<stdio.h>
+#include<string.h>
 using namespace std;
+void mark(bool arr[],int a, int n)
+{
+	int i =2;
+	while(i*a<=n)
+	{
+		arr[i*a - 1] = 1;
+		i++;
+	}
+}
+void sieve(int n)
+{
+	long count =0;
+	if(n>=2)
+	{
+		bool arr[n+2];
+		memset(arr,0,sizeof(arr));
+		for(int i = 1;i<n;i++)
+		{
+			if(arr[i]==0)
+			{
+			//	cout<<i+1<<" ";
+				count++;
+				mark(arr,i+1,n);
+			}
+		}
+		for(int i =0;i<n;i++)
+			cout<<arr[i]<<" ";
+		cout<<endl;
+		cout<<count<<endl;
+	}
+}
 int main()
 {
-	long long int m,n;
-	cin>>m>>n;
-	long long arry[n-m+1];
-	for(long long i=0;i<m-n+1;i++)
-		arry[i] = 0;
-	for(long long j =m;j<=n;j++)
-	{
-	for(long long i = 2;i<= sqrt(n);i++)
-	{
-		if(j%i==0)
-		{
-			arry[j-m]= -1;
-			break;
-		}
-
-
-	}
-	}
-	for(long long i =0;i<(m-n);i++)
-	{
-		if(arry[i]!=(-1))
-			cout<<m+i<<" ";
-	}
-	cout<<endl;
-	
+	int n;
+	cin>>n;
+	sieve(n);
 	return 0;
 }

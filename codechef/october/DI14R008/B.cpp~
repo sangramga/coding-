@@ -1,0 +1,61 @@
+#include<stdio.h>
+#include<iostream>
+#include<string.h>
+#include<limits.h>
+using namespace std;
+int main()
+{
+    long long t;
+    cin>>t;
+    while(t--)
+    {
+        char str[1000];
+        int start=0,endI;
+        int tmp;
+        int maxLn=INT_MIN;
+
+
+        gets(str);
+
+        endI=strlen(str)-1;
+        tmp=endI;
+
+        while(str[start]!='b'&&start<endI)
+        {
+            ++start;
+        }
+        if(start>=endI)
+        {
+            printf();
+        }
+        else
+        {
+
+            for(int i= endI; i>start; i--)
+            {
+                if(str[i]=='a')
+                {
+                    tmp=0;
+                    int l=i;
+                    while(str[i]=='a')
+                    {
+                        ++tmp;
+                        --i;
+
+                    }
+
+                    if(maxLn<tmp)
+                    {
+                        endI=l;
+                        maxLn=tmp;
+                    }
+                    ++i;
+                }
+            }
+            cout<<start<<","<<endI<<endl;
+        }
+    }
+
+    return 0;
+
+}

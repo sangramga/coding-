@@ -1,0 +1,106 @@
+#include<iostream>
+#include<stdio.h>
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+int max(long long a,long long b, long long c)
+{
+	if(a>b)
+		if(a>c)
+			return 0;
+		else
+			return 2;
+	else
+		if(b>c)
+			return 1;
+		else
+			return 2;
+}
+int main()
+{
+	long long t;
+	cin>>t;
+	while(t--)
+	{
+		long long potions[3][100] = {0};
+		long long r,g,b,m,tmp,sumR=0,sumG=0,sumB=0;
+		cin>>r>>g>>b>m;
+		for(int i =0;i<r;i++)
+		{
+			cin>>potions[0][i];
+			sumR+=potions[0][i];
+		}
+		 for(int i =0;i<g;i++)
+		 {
+		        cin>>potions[1][i];
+			sumG+=potions[1][i];
+		 }
+		 for(int i =0;i<b;i++)
+		 {
+			 cin>>potions[2][i];
+			 sumB+=potions[2][i];
+		 }
+		 while(m--)
+		 {
+			 int k  = max(sumR,sumG,sumB);
+			 if(k==0)
+			 {
+				 sumR =0;			 
+				 for(int i =0;i<r;i++){
+					 potions[k][i]/=2;
+					 sumR+=potions[k][i];
+				 }
+			}
+			if(k==1)
+			 {
+				 sumG =0;			 
+				 for(int i =0;i<g;i++){
+					 potions[k][i]/=2;
+					 sumG+=potions[k][i];
+				 }
+			}
+			if(k==2)
+			 {
+				 sumB =0;			 
+				 for(int i =0;i<b;i++){
+					 potions[k][i]/=2;
+					 sumB+=potions[k][i];
+				 }
+			}
+	}
+		 int k = max(sumR,sumG,sumB);
+		 long long mx =0;
+		if(k==0)
+		{
+			for(int i=0;i<r;i++)
+			{
+				if(potions[k][i]>mx)
+					mx = potions[k][i];
+			}
+		}
+		 if(k==1)
+                {
+                        for(int i=0;i<g;i++)
+                        {
+                                if(potions[k][i]>mx)
+                                        mx = potions[k][i];
+                        }
+                }
+		 if(k==2)
+                {
+                        for(int i=0;i<b;i++)
+                        {
+                                if(potions[k][i]>mx)
+                                        mx = potions[k][i];
+                        }
+                }
+
+
+		 
+
+
+	}
+
+	return 0;
+}

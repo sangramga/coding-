@@ -1,0 +1,17 @@
+#include<iostream>
+#include <fstream>
+using namespace std;
+int main()
+{
+	ifstream iFile;
+	int t;
+	
+	while (true) {
+ 	cin>>t;
+    iFile >> t;
+    if( iFile.eof()) break;
+    else cout<<t<<endl;
+	
+	}
+	return 0;
+	}
