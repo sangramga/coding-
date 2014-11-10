@@ -1,0 +1,15 @@
+package prac;
+
+import java.util.Date;
+
+public class practic {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Date d = new Date();
+		long str = d.getTime();
+		System.out.println(str );
+		
+	}
+
+}

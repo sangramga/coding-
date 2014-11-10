@@ -1,0 +1,18 @@
+package stream;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
+public class Scedule  {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Timer time = new Timer(); // Instantiate Timer Object
+		SearchTweets st = new SearchTweets();
+		st.connection();
+		time.schedule(st, 0, 61000);
+
+	}
+
+	
+}

@@ -1,0 +1,25 @@
+package twitter;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import twitter4j.Trend;
+import twitter4j.Trends;
+import twitter4j.TwitterException;
+import twitter4j.TwitterFactory;
+
+public class Trends {
+
+	public  List getTrendsByWoeid(int woeid)
+			throws TwitterException {
+		twitter = new TwitterFactory(this.cb.build()).getInstance();
+
+		List trendNames = new ArrayList();
+		Trends trends = twitter.getPlaceTrends(woeid);
+		Trend[] trend = trends.getTrends();
+		for (Trend t : trend) {
+			trendNames.add(t.getName());
+		}
+		return trendNames;
+	}
+}

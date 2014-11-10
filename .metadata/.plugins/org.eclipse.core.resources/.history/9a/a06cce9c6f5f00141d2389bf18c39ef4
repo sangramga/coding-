@@ -1,0 +1,49 @@
+package stream;
+import stream.SearchTweets;
+
+import java.io.IOException;
+import java.util.List;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FSDataOutputStream;
+import org.apache.hadoop.fs.FileSystem;
+import org.apache.hadoop.fs.Path;
+
+public class StartAgain {
+
+	public void headStart(List trends,String count) throws IOException 
+	{
+		SearchTweets st = new SearchTweets();
+		FileSystem fs = FileSystem.get(new Configuration());
+		Path newFilePath=new Path(st.path+count);
+		fs.mkdirs(newFilePath);
+		newFilePath = new Path(st.path+count+"/keywords.txt");
+		fs.createNewFile(newFilePath);
+		FSDataOutputStream fsOutStream ;
+		fsOutStream= fs.create(newFilePath);
+
+		for(int i = 0;i<trends.size();i++)
+		{
+			fsOutStream.write(trends.get(i).toString().getBytes());
+			fsOutStream.writeBytes("\n");
+		}
+		fsOutStream.flush();
+		fsOutStream.close();
+		String[] keywords = new String[trends.size()];
+		for (int i = 0; i < trends.size(); i++) {
+			keywords[i] = ((String)trends.get(i));	
+		}
+
+		System.out.println("Entering search");
+		newFilePath = new Path(path+count+"/tweets.txt");
+		fs.createNewFile(newFilePath);
+		fsOutStream = fs.create(newFilePath);
+		st.search(keywords, fsOutStream);
+		fsOutStream.close();
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
