@@ -1,44 +1,53 @@
+#include<iostream>
 #include<stdio.h>
-#include<stdlib.h>
-#include<cmath>
+#include<math.h>
+#include<vector>
 using namespace std;
-int main()
+long long limit = sqrt(1000000000)+2;
+long long sqrtlimit = sqrt(limit) +1;
+vector<bool>sieve(limit+1,false);
+vector<long long >primes;
+void Sieve()
 {
-	int t;
-	scanf("%d",&t);
-	while(t--){
-	long long n,m;
-	scanf("%lld %lld",&m,&n);
-	long long arr[n-m+1];
-	long long tmp = m;
-       for(long long i =0;i<=(n-m);i++)
-       {
-	arr[i] = tmp;
-	tmp++;
-       } 
-    	long long sqroot = (long long) (ceil(sqrt(n)));  
-//       printf("sqroot = %lld\n",sqroot);	
-	for(long long i =2;i<=sqroot;i++)
+	for(int i =4;i<=limit;i+=2)
+		sieve[i] =true;
+	for(int i =3;i<=sqrtlimit;i+=2)
 	{
-		for(long long j = m;j<=n;j++)
+		if(!sieve[i])
 		{
-			if(j<=i)
-			{
-//				printf("array %lld : i = %lld j = %lld .thus break\n",arr[j],i,j);
-				continue;
-			}
-			if(j!=i&&j%i==0){
-				arr[j-m] = -1;
-//				 printf("array = %lld: i = %lld j = %lld\n",arr[j],i,j);
-
-		}
+			for(int j = i*i;j<=limit;j+=2*i)
+				sieve[j] = true;
 		}
 	}
-	 for(long long j = 0;j<=(n-m);j++)
-	 {
-		 if(arr[j]!= -1 && arr[j]!=1)
-			 printf("%lld\n",arr[j]);
-	 }
-	}
-	return 0;
+	for(int i = 2;i<=limit;i++)
+		if(!sieve[i])
+			primes.push_back(i);
 }
+int checkPrime(long long n)
+{
+	for(int i =0;i<primes.size()&&primes[i]*primes[i]<=n;i++)
+	{
+		if(n%primes[i]==0)
+			return 0;
+	}
+	return 1;
+}
+main()
+{
+	Sieve();
+	int t;
+	cin>>t;
+	while(t--)
+	{
+		long long m,n;
+		cin>>m>>n;
+		for(long long i = m;i<=n;i++)
+		{
+			if(i==1)
+				continue;
+			if(checkPrime(i))
+				cout<<i<<endl;
+		}
+	}
+}
+	

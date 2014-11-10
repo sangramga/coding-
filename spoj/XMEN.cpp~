@@ -1,0 +1,41 @@
+#include<iostream>
+using namespace std;
+int max(int a, int b)
+{
+	if(a>b)
+		return a;
+	else
+		return b;
+}
+
+
+int main()
+{
+	int t;
+	cin>>t;
+	while(t--)
+	{
+		int n;
+		cin>>n;
+		int num1[n],num2[n];
+		for(int i =0;i<n;i++)
+			cin>>num1[i];
+		for(int i =0;i<n;i++)
+			cin>>num2[i];
+		int len[n+1][n+1];
+	for(int i =0;i<=n;i++)
+	{
+		for(int j =0;j<=n;j++)
+		{
+			if(i==0||j==0)
+				len[i][j] =0;
+			else if(num1[i-1]==num2[j-1])
+				len[i][j] = 1 + len[i-1][j-1];
+			else
+				len[i][j] = max(len[i-1][j],len[i][j-1]);
+		}
+	}
+	cout<<len[n][n]<<endl;
+	}
+	return 0;
+}

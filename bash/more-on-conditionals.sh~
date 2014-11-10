@@ -1,0 +1,16 @@
+read x
+read y
+read z
+if [ "$x" -eq "$y" ] && [ "$x" -eq "$z" ] ;
+	echo "EQUILATERAL"
+elif ["$x" -ne "$y" ] && [ "$y" -eq "$z" ];
+	echo "ISOSCELES"
+elif ["$z" -ne "$y" ] && [ "$x" -eq "$z" ];
+	echo "ISOSCELES"
+elif ["$z" -ne "$y" ] && [ "$x" -eq "$y" ];
+	        echo "ISOSCELES"
+else
+	echo "SCALENE"
+fi
+
+

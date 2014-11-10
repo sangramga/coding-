@@ -1,0 +1,46 @@
+#include<string.h>
+#include<iostream>
+#include<stdlib.h>
+#include<cstdio>
+using namespace std;
+int min(int a , int b, int c)
+{
+	if(a<b)
+		if(a<c)
+			return a;
+		else
+			return c;
+	else
+		if(b<c)
+			return b;
+		else
+			return c;
+}
+int editDistance(string a,string b)
+{
+	int n = b.size()+1;
+		int m = a.size()+1;
+		int *num = (int*)malloc(sizeof(int)*m*n);
+		for(int i =0;i<n;i++)
+			*(num + m*i)= i;
+		for(int i =0;i<m;i++)
+			*(num + i) = i;
+		for(int i =1;i<=n;i++)
+			for(int j =1;j<=m;j++)
+	       			*(num + i*n + j) = min(*(num +n*(i-1) + j-1 )+(a[j-1]!=b[i-1]) ,*(num + (i-1)*n +j) +1,*(num + n*i + j-1)+1);
+		int cost = *(num + n*m -1)<<endl;
+		free(num);
+	return cost;
+}
+int main()
+{
+	int t;
+	cin>>t;
+	while(t--)
+	{
+		string a,b;
+		cin>>a>>b;
+		cout<<editDistance(a,b)<<endl;
+	}
+	return 0;
+}
