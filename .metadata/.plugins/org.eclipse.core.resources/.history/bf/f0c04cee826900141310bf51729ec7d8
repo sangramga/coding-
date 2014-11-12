@@ -1,0 +1,28 @@
+package prac;
+
+import java.io.File;
+
+import com.cybozu.labs.langdetect.Detector;
+import com.cybozu.labs.langdetect.DetectorFactory;
+import com.cybozu.labs.langdetect.LangDetectException;
+
+public class LanguageFind {
+
+	public static void main(String[] args) throws LangDetectException {
+		// TODO Auto-generated method stub
+		
+		String str = "PM Modi is in Nay Pyi Taw to attend the ASEAN and East Asia Summits; "
+				+ "however, he will also be meeting the leaders of the country during his stay there."
+				+ "Before leaving New Delhi earlier this morning, PM Modi asserted that ASEAN is at the"
+				+ " core of India's 'Act East' policy.ASEAN is at the core of our Act East Policy and at"
+				+ " faces so many challenges as the region spanning the Indian Ocean, continental Asia and Pacific Ocean, "
+				+ "he said the East Asia Summit has the potential to shape this region and the world's future.";
+		File profileDirectory = new File("/home/ranger/btp2k15/profiles");
+		DetectorFactory.loadProfile(profileDirectory);;
+		Detector detector = DetectorFactory.create();
+		detector.append(str);
+		String lang = detector.detect();
+		System.out.println(str.length()+" "+lang);
+	}
+
+}
