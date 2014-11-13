@@ -41,7 +41,6 @@
 <fullyQualifiedTypeName name="twitter4j.Twitter"/>
 <fullyQualifiedTypeName name="twitter.Config"/>
 <fullyQualifiedTypeName name="twitter4j.Trends"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="org.apache.hadoop.fs.Path"/>
 <fullyQualifiedTypeName name="twitter4j.TwitterFactory"/>
 <fullyQualifiedTypeName name="twitter4j.TwitterStreamFactory"/>
@@ -49,7 +48,6 @@
 <fullyQualifiedTypeName name="org.apache.hadoop.fs.FSDataOutputStream"/>
 <fullyQualifiedTypeName name="java.util.TimerTask"/>
 <fullyQualifiedTypeName name="java.util.Timer"/>
-<fullyQualifiedTypeName name="twitter4j.FilterQuery"/>
 <fullyQualifiedTypeName name="org.apache.hadoop.fs.FsUrlStreamHandlerFactory"/>
 <fullyQualifiedTypeName name="streamSelf.TweetStream"/>
 <fullyQualifiedTypeName name="org.json.simple.parser.JSONParser"/>
@@ -60,4 +58,6 @@
 <fullyQualifiedTypeName name="java.io.BufferedReader"/>
 <fullyQualifiedTypeName name="twitter4j.Status"/>
 <fullyQualifiedTypeName name="twitter4j.json.DataObjectFactory"/>
+<fullyQualifiedTypeName name="twitter4j.FilterQuery"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
 </qualifiedTypeNameHistroy>
