@@ -3,8 +3,8 @@
 using namespace std;
 struct node {
 	int data;
-	struct node* left;
-	struct node* right;
+	struct node *left;
+	struct node *right;
 };
 struct node* newnode(int data)
 {
@@ -27,7 +27,7 @@ int identicalTrees(struct node* root, struct node* root1)
 }
 int main()
 {
-	struct node* root = (struct node*)malloc(sizeof(struct node));
+	struct node *root = (struct node*)malloc(sizeof(struct node));
 	root = newnode(1);
 	root->right = newnode(2);
 	root->left = newnode(3);
