@@ -9,26 +9,39 @@ while(t--)
 {
 	string str;
 	cin>>str;
-	int alpha[26] = { 0} ;
-	for(int i = 0;i<str.size();i++)
-	{
-		if(alpha[str[i] - 'a'] ==0)
-			alpha[str[i] - 'a'] = 1;
-		else if(alpha[str[i] - 'a'] ==1)
-		        alpha[str[i] - 'a'] = 0;
-
-	}
 	int ans =0;
-	for(int i =0;i<26;i++)
+	for(int i =0,j= str.size()-1;i<j;)
 	{
-			ans += alpha[i];
-
+		if(str[i]==str[j])
+		{
+			i++;
+			j--;
+		}
+		else if(str[i+1]==str[j])
+		{
+			i += 2;
+			j--;
+			ans++;
+		}
+		else if(str[i] == str[j-1])
+		{
+			i++;
+			j-=2;
+			ans++;
+		}
+		else
+		{
+			ans = 10;
+		}
+		if(ans>1)
+			break;
 	}
-	if(ans==1||(ans==2 && alpha[str.size()/2-1]==1||(ans=0&&str.size()%2==0))||(ans==0 && (str[str.size()/2 -1]==str[str.size()/2])))
-		cout<<"YES"<<endl;
-	else
+	if(ans>1)
 		cout<<"NO"<<endl;
+	else
+		cout<<"YES"<<endl;
 }
+
 return 0;
 }
 
