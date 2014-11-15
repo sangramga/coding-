@@ -1,18 +1,14 @@
-#include<iostream>
-#include<stdlib.h>
+#include <iostream>
 using namespace std;
-struct node 
-{
-	int a;
-	int b;
-};
-int main()
-{
-	struct node* p = (struct node*)malloc(sizeof(struct node));
-	p->a = 1;
-	p->b = 2;
-	cout<<"hello"<<endl;
-	cout<<"a "<<p->a<<endl;
-	cout<<"b "<<p->b<<endl;
-	return 0;
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    long long n,k;
+    cin>>n>>k;
+    char str[n];
+    for(int i =0;i<n;i++)
+        cin>>str[i];
+    for(int i =0;i<n;i++)
+        cout<<str[(n-k+i)%n]<< " ";
+    cout<<endl;
+    return 0;
 }
