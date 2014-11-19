@@ -5,6 +5,10 @@
 		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="/home/ranger/btp2k15/code"/>
+			<item value="/home/ranger/btp2k15/twitter"/>
+			<item value="/home/ranger/Desktop/Data"/>
+			<item value="/home/ranger/btp2k15"/>
 			<item value="/home/ranger/Desktop/twitter"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">

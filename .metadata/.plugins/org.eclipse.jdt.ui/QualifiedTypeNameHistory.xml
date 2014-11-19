@@ -1,2 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="org.apache.hadoop.fs.FSInputStream"/>
+<fullyQualifiedTypeName name="org.apache.hadoop.fs.FsConstants"/>
+<fullyQualifiedTypeName name="org.apache.hadoop.fs.FSDataOutputStream"/>
+<fullyQualifiedTypeName name="java.util.TimerTask"/>
+<fullyQualifiedTypeName name="dataCollection.Data"/>
+<fullyQualifiedTypeName name="twitter4j.FilterQuery"/>
+</qualifiedTypeNameHistroy>
